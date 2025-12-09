@@ -63,10 +63,10 @@ EMOTIONS = ["Angry", "Disgust", "Fear", "Happy", "Neutral", "Sad", "Surprise"]
 # -----------------------------
 # Prediction API
 # -----------------------------
-@app.post("/predict")
+@app.post("/predict-image")  # ← CHANGED FROM "/predict" to "/predict-image"
 async def predict(file: UploadFile = File(...)):
     image_bytes = await file.read()
-    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    image = Image.open(io. BytesIO(image_bytes)).convert("RGB")
 
     img = transform(image).unsqueeze(0).to(device)
 
@@ -75,6 +75,6 @@ async def predict(file: UploadFile = File(...)):
         pred = output.argmax(1).item()
 
     return {
-        "emotion": EMOTIONS[pred],
+        "emotion":  EMOTIONS[pred],
         "index": pred
     }
