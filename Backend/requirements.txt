@@ -1,0 +1,13 @@
+# opencv-python
+# tf_keras
+# numpy
+# pandas
+# future
+# tensorflow
+
+fastapi
+uvicorn
+pillow
+torch
+numpy
+python-multipart
